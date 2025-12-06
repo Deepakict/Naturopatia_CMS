@@ -15,9 +15,25 @@
     "title": {
       "type": "string"
     },
-    "blocks": {
-      "type": "dynamiczone",
-      "components": ["shared.media", "shared.quote", "shared.rich-text", "shared.slider"]
+    "hero": {
+      "type": "component",
+      "component": "about.hero",
+      "repeatable": false
+    },
+    "featureStory": {
+      "type": "component",
+      "component": "shared.story-highlight",
+      "repeatable": false
+    },
+    "articlesSectionGrid": {
+      "type": "component",
+      "component": "shared.articles-section-grid",
+      "repeatable": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
     }
   }
 }

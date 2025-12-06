@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_about_filter_pills",
+  "info": {
+    "displayName": "Filter pill",
+    "icon": "filter"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "string"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "isDefault": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_about_article_sections",
+  "info": {
+    "displayName": "Articles section",
+    "icon": "th-large",
+    "description": "Grid of articles with filters and search"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "filters": {
+      "type": "component",
+      "repeatable": true,
+      "component": "about.filter-pill"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article.article"
+    },
+    "showSearch": {
+      "type": "boolean",
+      "default": true
+    },
+    "cardsPerPage": {
+      "type": "integer",
+      "default": 12
+    }
+  }
+}

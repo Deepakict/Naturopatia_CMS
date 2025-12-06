@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_about_featured_stories",
+  "info": {
+    "displayName": "Featured story",
+    "icon": "newspaper",
+    "description": "Highlight a lead article"
+  },
+  "options": {},
+  "attributes": {
+    "tag": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "excerpt": {
+      "type": "text"
+    },
+    "publishDate": {
+      "type": "date"
+    },
+    "ctaLabel": {
+      "type": "string",
+      "default": "Read"
+    },
+    "ctaUrl": {
+      "type": "string"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "article": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::article.article"
+    }
+  }
+}

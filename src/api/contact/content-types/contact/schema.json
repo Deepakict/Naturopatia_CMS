@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "contacts",
+  "info": {
+    "singularName": "contact",
+    "pluralName": "contacts",
+    "displayName": "Contact"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ContactForm": {
+      "type": "component",
+      "component": "contact.form-block",
+      "repeatable": false
+    },
+    "FAQ": {
+      "type": "component",
+      "component": "contact.faq-section",
+      "repeatable": false
+    },
+    "Support": {
+      "type": "component",
+      "component": "contact.support",
+      "repeatable": false
+    }
+  }
+}

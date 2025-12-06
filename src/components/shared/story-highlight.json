@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_shared_story_highlights",
+  "info": {
+    "displayName": "Story Highlight"
+  },
+  "options": {},
+  "attributes": {
+    "tag": {
+      "type": "string"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "ctaUrl": {
+      "type": "string"
+    },
+    "ctaLabel": {
+      "type": "string"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article"
+    }
+  },
+  "config": {}
+}

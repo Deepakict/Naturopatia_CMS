@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_shared_articles_section_grids",
+  "info": {
+    "displayName": "Articles Section Grid"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article"
+    },
+    "showSearch": {
+      "type": "boolean"
+    },
+    "cardsPerPage": {
+      "type": "integer"
+    },
+    "pagination": {
+      "type": "boolean"
+    }
+  },
+  "config": {}
+}

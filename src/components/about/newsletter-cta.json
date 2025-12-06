@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_about_newsletter_ctas",
+  "info": {
+    "displayName": "Newsletter CTA",
+    "icon": "envelope-open",
+    "description": "Full-width signup with background media"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "background": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "inputPlaceholder": {
+      "type": "string",
+      "default": "Enter email"
+    },
+    "buttonLabel": {
+      "type": "string",
+      "default": "Subscribe"
+    },
+    "actionUrl": {
+      "type": "string"
+    },
+    "note": {
+      "type": "text"
+    }
+  }
+}

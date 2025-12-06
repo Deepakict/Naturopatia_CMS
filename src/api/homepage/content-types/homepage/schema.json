@@ -1,0 +1,55 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "singularName": "homepage",
+    "pluralName": "homepages",
+    "displayName": "Homepage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "HeroSection": {
+      "type": "component",
+      "component": "homepage.hero",
+      "repeatable": false
+    },
+    "PhilosophySection": {
+      "type": "component",
+      "component": "homepage.philosopy-section",
+      "repeatable": false
+    },
+    "OurProductsSection": {
+      "type": "component",
+      "component": "homepage.our-products",
+      "repeatable": false
+    },
+    "ProductSection": {
+      "type": "component",
+      "component": "about.featured-story",
+      "repeatable": false
+    },
+    "ChooseUsSection": {
+      "type": "component",
+      "component": "homepage.choose-us",
+      "repeatable": true
+    },
+    "Testimonials": {
+      "type": "component",
+      "component": "homepage.testimonials",
+      "repeatable": true
+    },
+    "NewsletterSection": {
+      "type": "component",
+      "component": "shared.newsletter-cta",
+      "repeatable": false
+    },
+    "CommunitySection": {
+      "type": "component",
+      "component": "homepage.community",
+      "repeatable": false
+    }
+  }
+}

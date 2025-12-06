@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_shared_footer_sections",
+  "info": {
+    "displayName": "FooterSection"
+  },
+  "options": {},
+  "attributes": {
+    "tagline": {
+      "type": "text"
+    },
+    "shopTitle": {
+      "type": "string"
+    },
+    "socialLinks": {
+      "type": "component",
+      "component": "shared.footer-link",
+      "repeatable": true
+    },
+    "moreTitle": {
+      "type": "string"
+    },
+    "moreLinks": {
+      "type": "component",
+      "component": "shared.footer-link",
+      "repeatable": true
+    },
+    "followTitle": {
+      "type": "string"
+    },
+    "followLinks": {
+      "type": "component",
+      "component": "shared.footer-link",
+      "repeatable": true
+    },
+    "backToTopLabel": {
+      "type": "string"
+    },
+    "copyrightText": {
+      "type": "string"
+    },
+    "termsLabel": {
+      "type": "string"
+    },
+    "termsUrl": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

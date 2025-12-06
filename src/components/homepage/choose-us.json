@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_homepage_choose_uses",
+  "info": {
+    "displayName": "Choose Us"
+  },
+  "options": {},
+  "attributes": {
+    "hero": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "eyebrows": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "ChooseUsItems": {
+      "type": "component",
+      "component": "shared.item-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

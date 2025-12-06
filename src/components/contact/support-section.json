@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_contact_support_sections",
+  "info": {
+    "displayName": "Support Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

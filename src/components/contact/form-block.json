@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_contact_form_blocks",
+  "info": {
+    "displayName": "FormBlock"
+  },
+  "options": {},
+  "attributes": {
+    "sectionHeading": {
+      "type": "string"
+    },
+    "inputFirstNameLabel": {
+      "type": "string"
+    },
+    "inputLastNameLabel": {
+      "type": "string"
+    },
+    "inputEmailLabel": {
+      "type": "string"
+    },
+    "inputMessageLabel": {
+      "type": "string"
+    },
+    "buttonLabel": {
+      "type": "string"
+    },
+    "Hero": {
+      "type": "component",
+      "component": "shared.media",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

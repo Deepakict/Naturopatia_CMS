@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_contact_support_items",
+  "info": {
+    "displayName": "Support Item"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "label": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

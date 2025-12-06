@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_homepage_philosopy_sections",
+  "info": {
+    "displayName": "PhilosopySection"
+  },
+  "options": {},
+  "attributes": {
+    "PhilosophyItems": {
+      "type": "component",
+      "component": "shared.item-list",
+      "repeatable": true
+    },
+    "eyebrow": {
+      "type": "string"
+    },
+    "headline": {
+      "type": "text"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

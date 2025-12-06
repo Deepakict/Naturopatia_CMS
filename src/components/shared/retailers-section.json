@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_shared_retailers_sections",
+  "info": {
+    "displayName": "RetailersSection"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "retailers": {
+      "type": "component",
+      "component": "shared.retailer-logo",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

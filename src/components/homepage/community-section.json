@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_homepage_community_sections",
+  "info": {
+    "displayName": "CommunityCard"
+  },
+  "options": {},
+  "attributes": {
+    "ctaLabel": {
+      "type": "string"
+    },
+    "ctaUrl": {
+      "type": "string"
+    },
+    "ctaIsExternal": {
+      "type": "boolean"
+    },
+    "images": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}
