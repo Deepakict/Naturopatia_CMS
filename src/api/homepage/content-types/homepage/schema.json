@@ -36,11 +36,6 @@
       "component": "homepage.choose-us",
       "repeatable": true
     },
-    "Testimonials": {
-      "type": "component",
-      "component": "homepage.testimonials",
-      "repeatable": true
-    },
     "NewsletterSection": {
       "type": "component",
       "component": "shared.newsletter-cta",
@@ -49,6 +44,11 @@
     "CommunitySection": {
       "type": "component",
       "component": "homepage.community",
+      "repeatable": false
+    },
+    "TestimonialSection": {
+      "type": "component",
+      "component": "homepage.testimonials-section",
       "repeatable": false
     }
   }

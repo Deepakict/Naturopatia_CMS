@@ -538,6 +538,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    richText: Schema.Attribute.RichText;
     slug: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -714,7 +715,10 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     >;
     ProductSection: Schema.Attribute.Component<'about.featured-story', false>;
     publishedAt: Schema.Attribute.DateTime;
-    Testimonials: Schema.Attribute.Component<'homepage.testimonials', true>;
+    TestimonialSection: Schema.Attribute.Component<
+      'homepage.testimonials-section',
+      false
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

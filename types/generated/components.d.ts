@@ -26,13 +26,13 @@ export interface AboutFeaturedStory extends Struct.ComponentSchema {
   };
   attributes: {
     article: Schema.Attribute.Relation<'oneToOne', 'api::article.article'>;
-    cover: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    cover: Schema.Attribute.Media<'images'>;
     ctaLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Read'>;
     ctaUrl: Schema.Attribute.String;
     excerpt: Schema.Attribute.Text;
     publishDate: Schema.Attribute.Date;
     tag: Schema.Attribute.String;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -272,6 +272,17 @@ export interface HomepageTestimonials extends Struct.ComponentSchema {
   };
 }
 
+export interface HomepageTestimonialsSection extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_testimonials_sections';
+  info: {
+    displayName: 'TestimonialsSection';
+  };
+  attributes: {
+    Testimonials: Schema.Attribute.Component<'homepage.testimonials', true>;
+    testimonialsHeading: Schema.Attribute.String;
+  };
+}
+
 export interface SharedArticlesSectionGrid extends Struct.ComponentSchema {
   collectionName: 'components_shared_articles_section_grids';
   info: {
@@ -505,6 +516,7 @@ declare module '@strapi/strapi' {
       'homepage.our-products': HomepageOurProducts;
       'homepage.philosopy-section': HomepagePhilosopySection;
       'homepage.testimonials': HomepageTestimonials;
+      'homepage.testimonials-section': HomepageTestimonialsSection;
       'shared.articles-section-grid': SharedArticlesSectionGrid;
       'shared.footer-link': SharedFooterLink;
       'shared.footer-section': SharedFooterSection;

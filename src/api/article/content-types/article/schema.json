@@ -54,6 +54,9 @@
         "shared.slider",
         "shared.product-info-section"
       ]
+    },
+    "richText": {
+      "type": "richtext"
     }
   }
 }

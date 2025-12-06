@@ -12,7 +12,7 @@
     },
     "title": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "excerpt": {
       "type": "text"
@@ -30,8 +30,10 @@
     "cover": {
       "type": "media",
       "multiple": false,
-      "required": true,
-      "allowedTypes": ["images"]
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "article": {
       "type": "relation",
