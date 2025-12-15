@@ -14,16 +14,11 @@
     "HeroSection": {
       "type": "component",
       "component": "homepage.hero",
-      "repeatable": false
+      "repeatable": true
     },
     "PhilosophySection": {
       "type": "component",
       "component": "homepage.philosopy-section",
-      "repeatable": false
-    },
-    "OurProductsSection": {
-      "type": "component",
-      "component": "homepage.our-products",
       "repeatable": false
     },
     "ProductSection": {
@@ -49,6 +44,21 @@
     "TestimonialSection": {
       "type": "component",
       "component": "homepage.testimonials-section",
+      "repeatable": false
+    },
+    "OurProductSection": {
+      "type": "component",
+      "component": "homepage.our-product-section",
+      "repeatable": false
+    },
+    "RetailerSection": {
+      "type": "component",
+      "component": "shared.retailers-section",
+      "repeatable": false
+    },
+    "founderSection": {
+      "type": "component",
+      "component": "shared.card-item",
       "repeatable": false
     }
   }

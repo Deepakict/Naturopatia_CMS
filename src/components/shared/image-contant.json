@@ -1,42 +1,37 @@
 {
-  "collectionName": "components_homepage_heroes",
+  "collectionName": "components_shared_image_contants",
   "info": {
-    "displayName": "Hero"
+    "displayName": "ImageContant"
   },
   "options": {},
   "attributes": {
-    "eyebrow": {
+    "tag": {
       "type": "string"
     },
     "title": {
       "type": "string"
     },
-    "subtitle": {
+    "excerpt": {
       "type": "blocks"
     },
-    "primaryCtaLabel": {
+    "publishDate": {
+      "type": "date"
+    },
+    "ctaLabel": {
       "type": "string"
     },
-    "primaryCtaUrl": {
+    "ctaUrl": {
       "type": "string"
     },
-    "reviewBadge": {
-      "type": "string"
-    },
-    "heroImage": {
+    "cover": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
       ]
-    },
-    "InfoItems": {
-      "type": "component",
-      "component": "shared.item-list",
-      "repeatable": true
     }
   },
   "config": {}

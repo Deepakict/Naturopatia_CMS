@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "our_products",
+  "info": {
+    "singularName": "our-product",
+    "pluralName": "our-products",
+    "displayName": "OurProduct"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "HeroSection": {
+      "type": "component",
+      "component": "homepage.hero",
+      "repeatable": false
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article"
+    },
+    "RetailersSection": {
+      "type": "component",
+      "component": "shared.retailers-section",
+      "repeatable": false
+    },
+    "newLetterSection": {
+      "type": "component",
+      "component": "shared.newsletter-cta",
+      "repeatable": false
+    }
+  }
+}

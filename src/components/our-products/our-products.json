@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_our_products_our_products",
+  "info": {
+    "displayName": "ourProducts"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    },
+    "showSearch": {
+      "type": "boolean"
+    }
+  },
+  "config": {}
+}

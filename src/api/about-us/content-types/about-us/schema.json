@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_uses",
+  "info": {
+    "singularName": "about-us",
+    "pluralName": "about-uses",
+    "displayName": "AboutUs"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "HeroSection": {
+      "type": "component",
+      "component": "homepage.hero",
+      "repeatable": false
+    },
+    "DescriptionSection": {
+      "type": "component",
+      "component": "about-us.about-description",
+      "repeatable": false
+    },
+    "ImageContant": {
+      "type": "component",
+      "component": "shared.image-contant",
+      "repeatable": false
+    },
+    "OurTeam": {
+      "type": "component",
+      "component": "homepage.community",
+      "repeatable": false
+    }
+  }
+}

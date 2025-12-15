@@ -20,7 +20,7 @@
     "badge": {
       "type": "string"
     },
-    "price": {
+    "defaultPrice": {
       "type": "decimal"
     },
     "productDiscountActive": {
@@ -36,10 +36,38 @@
         "audios"
       ]
     },
-    "Product": {
+    "productCategory": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::category.category"
+    },
+    "rating": {
+      "type": "decimal"
+    },
+    "reviewsCount": {
+      "type": "integer"
+    },
+    "limitedEdition": {
+      "type": "boolean"
+    },
+    "bestSellers": {
+      "type": "boolean"
+    },
+    "inStock": {
+      "type": "boolean"
+    },
+    "sizeType": {
+      "type": "component",
+      "component": "shared.size-list",
+      "repeatable": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "productList": {
+      "type": "component",
+      "component": "shared.item-list",
+      "repeatable": true
     }
   }
 }

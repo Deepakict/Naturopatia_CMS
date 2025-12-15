@@ -5,15 +5,12 @@
   },
   "options": {},
   "attributes": {
-    "eyebrow": {
-      "type": "string"
-    },
     "title": {
       "type": "string"
     },
-    "retailers": {
+    "retailer": {
       "type": "component",
-      "component": "shared.retailer-logo",
+      "component": "shared.item-list",
       "repeatable": true
     }
   },

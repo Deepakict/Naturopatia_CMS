@@ -467,6 +467,40 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
+  collectionName: 'about_uses';
+  info: {
+    displayName: 'AboutUs';
+    pluralName: 'about-uses';
+    singularName: 'about-us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    DescriptionSection: Schema.Attribute.Component<
+      'about-us.about-description',
+      false
+    >;
+    HeroSection: Schema.Attribute.Component<'homepage.hero', false>;
+    ImageContant: Schema.Attribute.Component<'shared.image-contant', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-us.about-us'
+    > &
+      Schema.Attribute.Private;
+    OurTeam: Schema.Attribute.Component<'homepage.community', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   collectionName: 'abouts';
   info: {
@@ -492,6 +526,10 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::about.about'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    RetailersSection: Schema.Attribute.Component<
+      'shared.retailers-section',
+      false
+    >;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -572,6 +610,32 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBlogBlog extends Struct.SingleTypeSchema {
+  collectionName: 'blogs';
+  info: {
+    displayName: 'Blog';
+    pluralName: 'blogs';
+    singularName: 'blog';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    HeroSection: Schema.Attribute.Component<'homepage.hero', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'> &
+      Schema.Attribute.Private;
+    ProductSection: Schema.Attribute.Component<'about.featured-story', false>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -694,7 +758,8 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    HeroSection: Schema.Attribute.Component<'homepage.hero', false>;
+    founderSection: Schema.Attribute.Component<'shared.card-item', false>;
+    HeroSection: Schema.Attribute.Component<'homepage.hero', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -705,8 +770,8 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
       'shared.newsletter-cta',
       false
     >;
-    OurProductsSection: Schema.Attribute.Component<
-      'homepage.our-products',
+    OurProductSection: Schema.Attribute.Component<
+      'homepage.our-product-section',
       false
     >;
     PhilosophySection: Schema.Attribute.Component<
@@ -715,8 +780,50 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     >;
     ProductSection: Schema.Attribute.Component<'about.featured-story', false>;
     publishedAt: Schema.Attribute.DateTime;
+    RetailerSection: Schema.Attribute.Component<
+      'shared.retailers-section',
+      false
+    >;
     TestimonialSection: Schema.Attribute.Component<
       'homepage.testimonials-section',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOurProductOurProduct extends Struct.SingleTypeSchema {
+  collectionName: 'our_products';
+  info: {
+    displayName: 'OurProduct';
+    pluralName: 'our-products';
+    singularName: 'our-product';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    HeroSection: Schema.Attribute.Component<'homepage.hero', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::our-product.our-product'
+    > &
+      Schema.Attribute.Private;
+    newLetterSection: Schema.Attribute.Component<
+      'shared.newsletter-cta',
+      false
+    >;
+    products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
+    publishedAt: Schema.Attribute.DateTime;
+    RetailersSection: Schema.Attribute.Component<
+      'shared.retailers-section',
       false
     >;
     updatedAt: Schema.Attribute.DateTime;
@@ -737,25 +844,64 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   };
   attributes: {
     badge: Schema.Attribute.String;
+    bestSellers: Schema.Attribute.Boolean;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    defaultPrice: Schema.Attribute.Decimal;
+    description: Schema.Attribute.RichText;
     gallery: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
+    inStock: Schema.Attribute.Boolean;
+    limitedEdition: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::product.product'
     > &
       Schema.Attribute.Private;
-    price: Schema.Attribute.Decimal;
-    Product: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
+    productCategory: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::category.category'
+    >;
     productDiscountActive: Schema.Attribute.Boolean;
+    productList: Schema.Attribute.Component<'shared.item-list', true>;
     publishedAt: Schema.Attribute.DateTime;
+    rating: Schema.Attribute.Decimal;
+    reviewsCount: Schema.Attribute.Integer;
+    sizeType: Schema.Attribute.Component<'shared.size-list', true>;
     slug: Schema.Attribute.String;
     title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRetailerRetailer extends Struct.CollectionTypeSchema {
+  collectionName: 'retailers';
+  info: {
+    displayName: 'Retailer';
+    pluralName: 'retailers';
+    singularName: 'retailer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::retailer.retailer'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    retailerItem: Schema.Attribute.Component<'shared.item-list', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1273,14 +1419,18 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::about.about': ApiAboutAbout;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
+      'api::blog.blog': ApiBlogBlog;
       'api::category.category': ApiCategoryCategory;
       'api::contact.contact': ApiContactContact;
       'api::global.global': ApiGlobalGlobal;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::our-product.our-product': ApiOurProductOurProduct;
       'api::product.product': ApiProductProduct;
+      'api::retailer.retailer': ApiRetailerRetailer;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

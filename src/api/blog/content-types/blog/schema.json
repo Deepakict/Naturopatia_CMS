@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "blogs",
+  "info": {
+    "singularName": "blog",
+    "pluralName": "blogs",
+    "displayName": "Blog"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "HeroSection": {
+      "type": "component",
+      "component": "homepage.hero",
+      "repeatable": false
+    },
+    "ProductSection": {
+      "type": "component",
+      "component": "about.featured-story",
+      "repeatable": false
+    }
+  }
+}

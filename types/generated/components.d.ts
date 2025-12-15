@@ -1,5 +1,16 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface AboutUsAboutDescription extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_about_descriptions';
+  info: {
+    displayName: 'AboutDescription';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    eyebrow: Schema.Attribute.String;
+  };
+}
+
 export interface AboutArticleSection extends Struct.ComponentSchema {
   collectionName: 'components_about_article_sections';
   info: {
@@ -219,11 +230,23 @@ export interface HomepageHero extends Struct.ComponentSchema {
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
+    InfoItems: Schema.Attribute.Component<'shared.item-list', true>;
     primaryCtaLabel: Schema.Attribute.String;
     primaryCtaUrl: Schema.Attribute.String;
     reviewBadge: Schema.Attribute.String;
     subtitle: Schema.Attribute.Blocks;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface HomepageOurProductSection extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_our_product_sections';
+  info: {
+    displayName: 'OurProductSection';
+  };
+  attributes: {
+    products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
+    productTitle: Schema.Attribute.String;
   };
 }
 
@@ -278,8 +301,21 @@ export interface HomepageTestimonialsSection extends Struct.ComponentSchema {
     displayName: 'TestimonialsSection';
   };
   attributes: {
-    Testimonials: Schema.Attribute.Component<'homepage.testimonials', true>;
+    testimonials: Schema.Attribute.Component<'homepage.testimonials', true>;
     testimonialsHeading: Schema.Attribute.String;
+  };
+}
+
+export interface OurProductsOurProducts extends Struct.ComponentSchema {
+  collectionName: 'components_our_products_our_products';
+  info: {
+    displayName: 'ourProducts';
+  };
+  attributes: {
+    category: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
+    products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
+    showSearch: Schema.Attribute.Boolean;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -297,6 +333,21 @@ export interface SharedArticlesSectionGrid extends Struct.ComponentSchema {
     >;
     pagination: Schema.Attribute.Boolean;
     showSearch: Schema.Attribute.Boolean;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SharedCardItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_card_items';
+  info: {
+    displayName: 'cardItem';
+  };
+  attributes: {
+    cardImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    ctaLabel: Schema.Attribute.String;
+    ctaUrl: Schema.Attribute.String;
+    description: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     title: Schema.Attribute.String;
   };
 }
@@ -338,8 +389,22 @@ export interface SharedImageBlock extends Struct.ComponentSchema {
   info: {
     displayName: 'ImageBlock';
   };
+  attributes: {};
+}
+
+export interface SharedImageContant extends Struct.ComponentSchema {
+  collectionName: 'components_shared_image_contants';
+  info: {
+    displayName: 'ImageContant';
+  };
   attributes: {
-    heroImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    cover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    ctaLabel: Schema.Attribute.String;
+    ctaUrl: Schema.Attribute.String;
+    excerpt: Schema.Attribute.Blocks;
+    publishDate: Schema.Attribute.Date;
+    tag: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -418,26 +483,13 @@ export interface SharedQuote extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedRetailerLogo extends Struct.ComponentSchema {
-  collectionName: 'components_shared_retailer_logos';
-  info: {
-    displayName: 'RetailerLogo';
-  };
-  attributes: {
-    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    name: Schema.Attribute.String;
-    url: Schema.Attribute.String;
-  };
-}
-
 export interface SharedRetailersSection extends Struct.ComponentSchema {
   collectionName: 'components_shared_retailers_sections';
   info: {
     displayName: 'RetailersSection';
   };
   attributes: {
-    eyebrow: Schema.Attribute.String;
-    retailers: Schema.Attribute.Component<'shared.retailer-logo', true>;
+    retailer: Schema.Attribute.Component<'shared.item-list', true>;
     title: Schema.Attribute.String;
   };
 }
@@ -466,6 +518,18 @@ export interface SharedSeo extends Struct.ComponentSchema {
     metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
     metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
     shareImage: Schema.Attribute.Media<'images'>;
+  };
+}
+
+export interface SharedSizeList extends Struct.ComponentSchema {
+  collectionName: 'components_shared_size_lists';
+  info: {
+    displayName: 'sizeList';
+  };
+  attributes: {
+    isStock: Schema.Attribute.Boolean;
+    price: Schema.Attribute.Decimal;
+    size: Schema.Attribute.String;
   };
 }
 
@@ -498,6 +562,7 @@ export interface SharedStoryHighlight extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'about-us.about-description': AboutUsAboutDescription;
       'about.article-section': AboutArticleSection;
       'about.featured-story': AboutFeaturedStory;
       'about.filter-pill': AboutFilterPill;
@@ -513,24 +578,28 @@ declare module '@strapi/strapi' {
       'homepage.community': HomepageCommunity;
       'homepage.community-section': HomepageCommunitySection;
       'homepage.hero': HomepageHero;
+      'homepage.our-product-section': HomepageOurProductSection;
       'homepage.our-products': HomepageOurProducts;
       'homepage.philosopy-section': HomepagePhilosopySection;
       'homepage.testimonials': HomepageTestimonials;
       'homepage.testimonials-section': HomepageTestimonialsSection;
+      'our-products.our-products': OurProductsOurProducts;
       'shared.articles-section-grid': SharedArticlesSectionGrid;
+      'shared.card-item': SharedCardItem;
       'shared.footer-link': SharedFooterLink;
       'shared.footer-section': SharedFooterSection;
       'shared.image-block': SharedImageBlock;
+      'shared.image-contant': SharedImageContant;
       'shared.item-list': SharedItemList;
       'shared.media': SharedMedia;
       'shared.newsletter-cta': SharedNewsletterCta;
       'shared.product': SharedProduct;
       'shared.product-info-section': SharedProductInfoSection;
       'shared.quote': SharedQuote;
-      'shared.retailer-logo': SharedRetailerLogo;
       'shared.retailers-section': SharedRetailersSection;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
+      'shared.size-list': SharedSizeList;
       'shared.slider': SharedSlider;
       'shared.story-highlight': SharedStoryHighlight;
     }

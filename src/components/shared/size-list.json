@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_size_lists",
+  "info": {
+    "displayName": "sizeList"
+  },
+  "options": {},
+  "attributes": {
+    "size": {
+      "type": "string"
+    },
+    "isStock": {
+      "type": "boolean"
+    },
+    "price": {
+      "type": "decimal"
+    }
+  },
+  "config": {}
+}
