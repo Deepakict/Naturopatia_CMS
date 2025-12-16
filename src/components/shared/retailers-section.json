@@ -12,6 +12,9 @@
       "type": "component",
       "component": "shared.item-list",
       "repeatable": true
+    },
+    "eyeBrow": {
+      "type": "string"
     }
   },
   "config": {}

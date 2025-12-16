@@ -686,19 +686,27 @@ export interface ApiContactContact extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    ContactForm: Schema.Attribute.Component<'contact.form-block', false>;
+    contactForm: Schema.Attribute.Component<'contact.form-block', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    FAQ: Schema.Attribute.Component<'contact.faq-section', false>;
+    faq: Schema.Attribute.Component<'contact.faq-section', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::contact.contact'
     > &
       Schema.Attribute.Private;
+    newLetterSection: Schema.Attribute.Component<
+      'shared.newsletter-cta',
+      false
+    >;
     publishedAt: Schema.Attribute.DateTime;
-    Support: Schema.Attribute.Component<'contact.support', false>;
+    retailersSection: Schema.Attribute.Component<
+      'shared.retailers-section',
+      false
+    >;
+    support: Schema.Attribute.Component<'contact.support', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

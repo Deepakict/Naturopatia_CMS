@@ -23,10 +23,13 @@
     "buttonLabel": {
       "type": "string"
     },
-    "Hero": {
+    "hero": {
       "type": "component",
       "component": "shared.media",
       "repeatable": false
+    },
+    "title": {
+      "type": "string"
     }
   },
   "config": {}

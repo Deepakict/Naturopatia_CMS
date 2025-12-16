@@ -129,12 +129,13 @@ export interface ContactFormBlock extends Struct.ComponentSchema {
   };
   attributes: {
     buttonLabel: Schema.Attribute.String;
-    Hero: Schema.Attribute.Component<'shared.media', false>;
+    hero: Schema.Attribute.Component<'shared.media', false>;
     inputEmailLabel: Schema.Attribute.String;
     inputFirstNameLabel: Schema.Attribute.String;
     inputLastNameLabel: Schema.Attribute.String;
     inputMessageLabel: Schema.Attribute.String;
     sectionHeading: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -144,11 +145,11 @@ export interface ContactSupport extends Struct.ComponentSchema {
     displayName: 'Support';
   };
   attributes: {
-    ContactSupport: Schema.Attribute.Component<
+    contactSupport: Schema.Attribute.Component<
       'contact.support-section',
       false
     >;
-    SupportItem: Schema.Attribute.Component<'contact.support-item', true>;
+    supportItem: Schema.Attribute.Component<'contact.support-item', true>;
   };
 }
 
@@ -489,6 +490,7 @@ export interface SharedRetailersSection extends Struct.ComponentSchema {
     displayName: 'RetailersSection';
   };
   attributes: {
+    eyeBrow: Schema.Attribute.String;
     retailer: Schema.Attribute.Component<'shared.item-list', true>;
     title: Schema.Attribute.String;
   };

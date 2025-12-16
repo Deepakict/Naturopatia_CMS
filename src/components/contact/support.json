@@ -5,12 +5,12 @@
   },
   "options": {},
   "attributes": {
-    "ContactSupport": {
+    "contactSupport": {
       "type": "component",
       "component": "contact.support-section",
       "repeatable": false
     },
-    "SupportItem": {
+    "supportItem": {
       "type": "component",
       "component": "contact.support-item",
       "repeatable": true

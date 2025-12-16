@@ -11,19 +11,29 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "ContactForm": {
+    "contactForm": {
       "type": "component",
       "component": "contact.form-block",
       "repeatable": false
     },
-    "FAQ": {
+    "faq": {
       "type": "component",
       "component": "contact.faq-section",
       "repeatable": false
     },
-    "Support": {
+    "support": {
       "type": "component",
       "component": "contact.support",
+      "repeatable": false
+    },
+    "newLetterSection": {
+      "type": "component",
+      "component": "shared.newsletter-cta",
+      "repeatable": false
+    },
+    "retailersSection": {
+      "type": "component",
+      "component": "shared.retailers-section",
       "repeatable": false
     }
   }
