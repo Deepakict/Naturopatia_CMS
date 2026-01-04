@@ -268,13 +268,14 @@ export interface HomepagePhilosopySection extends Struct.ComponentSchema {
     displayName: 'PhilosopySection';
   };
   attributes: {
+    ctaLabel: Schema.Attribute.String;
+    ctaLink: Schema.Attribute.String;
     eyebrow: Schema.Attribute.String;
     headline: Schema.Attribute.Text;
     images: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
-    PhilosophyItems: Schema.Attribute.Component<'shared.item-list', true>;
   };
 }
 
@@ -320,6 +321,17 @@ export interface OurProductsOurProducts extends Struct.ComponentSchema {
   };
 }
 
+export interface OurProductsWhatOnComponent extends Struct.ComponentSchema {
+  collectionName: 'components_our_products_what_on_components';
+  info: {
+    displayName: 'what _on_ component';
+  };
+  attributes: {
+    eyebrow: Schema.Attribute.String;
+    what_on_it_items: Schema.Attribute.Component<'shared.item-list', true>;
+  };
+}
+
 export interface SharedArticlesSectionGrid extends Struct.ComponentSchema {
   collectionName: 'components_shared_articles_section_grids';
   info: {
@@ -344,10 +356,9 @@ export interface SharedCardItem extends Struct.ComponentSchema {
     displayName: 'cardItem';
   };
   attributes: {
-    cardImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    ctaLabel: Schema.Attribute.String;
     ctaUrl: Schema.Attribute.String;
     description: Schema.Attribute.RichText;
+    eyebrows: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     title: Schema.Attribute.String;
   };
@@ -586,6 +597,7 @@ declare module '@strapi/strapi' {
       'homepage.testimonials': HomepageTestimonials;
       'homepage.testimonials-section': HomepageTestimonialsSection;
       'our-products.our-products': OurProductsOurProducts;
+      'our-products.what-on-component': OurProductsWhatOnComponent;
       'shared.articles-section-grid': SharedArticlesSectionGrid;
       'shared.card-item': SharedCardItem;
       'shared.footer-link': SharedFooterLink;

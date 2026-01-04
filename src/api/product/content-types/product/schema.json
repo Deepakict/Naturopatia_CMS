@@ -20,9 +20,6 @@
     "badge": {
       "type": "string"
     },
-    "defaultPrice": {
-      "type": "decimal"
-    },
     "productDiscountActive": {
       "type": "boolean"
     },
@@ -67,6 +64,11 @@
     "productList": {
       "type": "component",
       "component": "shared.item-list",
+      "repeatable": true
+    },
+    "items": {
+      "type": "component",
+      "component": "our-products.what-on-component",
       "repeatable": true
     }
   }

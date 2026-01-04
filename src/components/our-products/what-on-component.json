@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_our_products_what_on_components",
+  "info": {
+    "displayName": "what _on_ component"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "what_on_it_items": {
+      "type": "component",
+      "component": "shared.item-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

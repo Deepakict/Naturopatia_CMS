@@ -5,11 +5,6 @@
   },
   "options": {},
   "attributes": {
-    "PhilosophyItems": {
-      "type": "component",
-      "component": "shared.item-list",
-      "repeatable": true
-    },
     "eyebrow": {
       "type": "string"
     },
@@ -25,6 +20,12 @@
         "videos",
         "audios"
       ]
+    },
+    "ctaLabel": {
+      "type": "string"
+    },
+    "ctaLink": {
+      "type": "string"
     }
   },
   "config": {}
