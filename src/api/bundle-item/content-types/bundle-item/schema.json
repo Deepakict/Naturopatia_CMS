@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bundle_items",
+  "info": {
+    "singularName": "bundle-item",
+    "pluralName": "bundle-items",
+    "displayName": "BundleItem"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "quantity": {
+      "type": "integer"
+    },
+    "bundle": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::bundle.bundle",
+      "inversedBy": "bundle_items"
+    },
+    "product_variant": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product-variant.product-variant",
+      "inversedBy": "bundle_items"
+    }
+  }
+}

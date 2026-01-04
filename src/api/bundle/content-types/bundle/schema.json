@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bundles",
+  "info": {
+    "singularName": "bundle",
+    "pluralName": "bundles",
+    "displayName": "Bundle"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "bundleMrp": {
+      "type": "decimal"
+    },
+    "bundleSellingPrice": {
+      "type": "decimal"
+    },
+    "bundleDiscount": {
+      "type": "integer"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::catalog-product.catalog-product",
+      "inversedBy": "bundle"
+    },
+    "bundle_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bundle-item.bundle-item",
+      "mappedBy": "bundle"
+    }
+  }
+}

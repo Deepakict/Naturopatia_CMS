@@ -643,6 +643,123 @@ export interface ApiBlogBlog extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiBundleItemBundleItem extends Struct.CollectionTypeSchema {
+  collectionName: 'bundle_items';
+  info: {
+    displayName: 'BundleItem';
+    pluralName: 'bundle-items';
+    singularName: 'bundle-item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bundle: Schema.Attribute.Relation<'manyToOne', 'api::bundle.bundle'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bundle-item.bundle-item'
+    > &
+      Schema.Attribute.Private;
+    product_variant: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::product-variant.product-variant'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    quantity: Schema.Attribute.Integer;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBundleBundle extends Struct.CollectionTypeSchema {
+  collectionName: 'bundles';
+  info: {
+    displayName: 'Bundle';
+    pluralName: 'bundles';
+    singularName: 'bundle';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bundle_items: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bundle-item.bundle-item'
+    >;
+    bundleDiscount: Schema.Attribute.Integer;
+    bundleMrp: Schema.Attribute.Decimal;
+    bundleSellingPrice: Schema.Attribute.Decimal;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bundle.bundle'
+    > &
+      Schema.Attribute.Private;
+    product: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::catalog-product.catalog-product'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCatalogProductCatalogProduct
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'catalog_products';
+  info: {
+    displayName: 'CatalogProduct';
+    pluralName: 'catalog-products';
+    singularName: 'catalog-product';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bestSellers: Schema.Attribute.Boolean;
+    bundle: Schema.Attribute.Relation<'oneToOne', 'api::bundle.bundle'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText;
+    images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    isActive: Schema.Attribute.Boolean;
+    items: Schema.Attribute.Component<'our-products.what-on-component', true>;
+    limitedEdition: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::catalog-product.catalog-product'
+    > &
+      Schema.Attribute.Private;
+    productList: Schema.Attribute.Component<'shared.item-list', true>;
+    productType: Schema.Attribute.Enumeration<['single', 'bundle']>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    variants: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-variant.product-variant'
+    >;
+  };
+}
+
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
@@ -837,6 +954,50 @@ export interface ApiOurProductOurProduct extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProductVariantProductVariant
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'product_variants';
+  info: {
+    displayName: 'ProductVariant';
+    pluralName: 'product-variants';
+    singularName: 'product-variant';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bundle_items: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bundle-item.bundle-item'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    isDefault: Schema.Attribute.Boolean;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-variant.product-variant'
+    > &
+      Schema.Attribute.Private;
+    mrp: Schema.Attribute.Decimal;
+    product: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::catalog-product.catalog-product'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    sellingPrice: Schema.Attribute.Decimal;
+    sizeLabel: Schema.Attribute.String;
+    sizeValue: Schema.Attribute.String;
+    sku: Schema.Attribute.String;
+    stock: Schema.Attribute.Integer;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    usp: Schema.Attribute.String;
   };
 }
 
@@ -1432,11 +1593,15 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::blog.blog': ApiBlogBlog;
+      'api::bundle-item.bundle-item': ApiBundleItemBundleItem;
+      'api::bundle.bundle': ApiBundleBundle;
+      'api::catalog-product.catalog-product': ApiCatalogProductCatalogProduct;
       'api::category.category': ApiCategoryCategory;
       'api::contact.contact': ApiContactContact;
       'api::global.global': ApiGlobalGlobal;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::our-product.our-product': ApiOurProductOurProduct;
+      'api::product-variant.product-variant': ApiProductVariantProductVariant;
       'api::product.product': ApiProductProduct;
       'api::retailer.retailer': ApiRetailerRetailer;
       'plugin::content-releases.release': PluginContentReleasesRelease;
