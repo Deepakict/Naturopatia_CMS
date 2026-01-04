@@ -748,6 +748,8 @@ export interface ApiCatalogProductCatalogProduct
     productList: Schema.Attribute.Component<'shared.item-list', true>;
     productType: Schema.Attribute.Enumeration<['single', 'bundle']>;
     publishedAt: Schema.Attribute.DateTime;
+    rating: Schema.Attribute.Decimal;
+    ratingCount: Schema.Attribute.Integer;
     slug: Schema.Attribute.String;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;

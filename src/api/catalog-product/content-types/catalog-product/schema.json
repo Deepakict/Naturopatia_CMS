@@ -67,6 +67,12 @@
     },
     "bestSellers": {
       "type": "boolean"
+    },
+    "rating": {
+      "type": "decimal"
+    },
+    "ratingCount": {
+      "type": "integer"
     }
   }
 }
